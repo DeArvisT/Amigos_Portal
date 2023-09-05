@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Employee } from './employee';
 import { HttpErrorResponse } from '@angular/common/http';
 import { EmployeeService } from './employee.service';
+import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-root',
@@ -11,6 +12,7 @@ import { EmployeeService } from './employee.service';
 export class AppComponent implements OnInit
 {
     public employees: Employee[];
+    public editEmployee: Employee;
 
     constructor(private employeeService: EmployeeService){}
  
@@ -28,6 +30,56 @@ export class AppComponent implements OnInit
     }
 
 
+    public onAddEmployee(addForm: NgForm): void
+    {
+      document.getElementById('add-employee-form').click();
+      this.employeeService.addEmployee(addForm.value).subscribe(
+          (Response: Employee) => 
+            {
+              console.log(Response);
+              this.getEmployees();
+            },
+     
+          (error: HttpErrorResponse) => 
+            {
+              alert(error.message);
+            }
+      );
+    }
+
+    public onUpdateEmployee(employee: Employee): void
+    {
+      this.employeeService.updateEmployee(employee).subscribe(
+          (Response: Employee) => 
+            {
+              console.log(Response);
+              this.getEmployees();
+            },
+     
+          (error: HttpErrorResponse) => 
+            {
+              alert(error.message);
+            }
+      );
+    }
+
+    public onDeleteEmployee(addForm: NgForm): void
+    {
+      document.getElementById('delete-employee-form').click();
+      this.employeeService.addEmployee(addForm.value).subscribe(
+          (Response: Employee) => 
+            {
+              console.log(Response);
+              this.getEmployees();
+            },
+     
+          (error: HttpErrorResponse) => 
+            {
+              alert(error.message);
+            }
+      );
+    }
+
     public onOpenModal(employee: Employee, mode: string): void
     {
         const container = document.getElementById('main-container');
@@ -44,6 +96,7 @@ export class AppComponent implements OnInit
 
       if (mode === 'edit')
       {
+        this.editEmployee = employee;
         button.setAttribute('data-target', '#updateEmployeeModal');
         //button.style.display = 'flex';
       }
