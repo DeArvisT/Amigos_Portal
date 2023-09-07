@@ -32,7 +32,7 @@ export class AppComponent implements OnInit
 
     public onAddEmployee(addForm: NgForm): void
     {
-      document.getElementById('add-employee-form').click();
+      document.getElementById('add-employee-form').click(); // This manually closes the modal AFTER the 'submit' button is pressed
       this.employeeService.addEmployee(addForm.value).subscribe(
           (Response: Employee) => 
             {
@@ -98,7 +98,7 @@ export class AppComponent implements OnInit
       {
         this.editEmployee = employee;
         button.setAttribute('data-target', '#updateEmployeeModal');
-        //button.style.display = 'flex';
+        //button.style.display = 'flex';     updateEmployeeModal
       }
   
       if (mode === 'delete')
