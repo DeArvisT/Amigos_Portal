@@ -13,6 +13,7 @@ export class AppComponent implements OnInit
 {
     public employees: Employee[];
     public editEmployee: Employee;
+    public deleteEmployee: number;
 
     constructor(private employeeService: EmployeeService){}
  
@@ -38,11 +39,13 @@ export class AppComponent implements OnInit
             {
               console.log(Response);
               this.getEmployees();
+              addForm.reset();
             },
      
           (error: HttpErrorResponse) => 
             {
               alert(error.message);
+              addForm.reset();
             }
       );
     }
@@ -63,11 +66,11 @@ export class AppComponent implements OnInit
       );
     }
 
-    public onDeleteEmployee(addForm: NgForm): void
+    public onDeleteEmployee(employeeId: number): void
     {
-      document.getElementById('delete-employee-form').click();
-      this.employeeService.addEmployee(addForm.value).subscribe(
-          (Response: Employee) => 
+      //document.getElementById('delete-employee-form').click();
+      this.employeeService.deleteEmployee(employeeId).subscribe(
+          (Response: void) => 
             {
               console.log(Response);
               this.getEmployees();
@@ -103,6 +106,7 @@ export class AppComponent implements OnInit
   
       if (mode === 'delete')
       {
+        this.deleteEmployee = employee.id;
         button.setAttribute('data-target', '#deleteEmployeeModal');
         //button.style.display = 'flex';
       }

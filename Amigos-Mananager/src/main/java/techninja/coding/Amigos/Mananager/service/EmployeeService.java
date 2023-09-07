@@ -7,10 +7,12 @@ import java.util.UUID;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import jakarta.transaction.Transactional;
 import techninja.coding.Amigos.Mananager.exception.UserNotFoundException;
 import techninja.coding.Amigos.Mananager.model.Employee;
 import techninja.coding.Amigos.Mananager.repo.EmployeeRepo;
 
+@Transactional
 @Service
 public class EmployeeService 
 {
