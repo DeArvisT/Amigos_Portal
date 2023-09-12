@@ -1,0 +1,11 @@
+1.)  Add Login Page UI
+2.)  Add Register Page UI
+3.)  Add Login/Registration functionaility with email
+4.)  Create sessions so EVERY user has their own Employees
+5.)  Add Team Button to Banner
+6.)  Allow Multiple Teams functionality ( Each user should be able to create more than one team )
+7.)  Add More Details Functionality
+8.)  Add (+) button to Employee profile
+9.)  Add employees to different teams functionaility using button
+10.) Allow functionality to move/re-order employee position on page
+

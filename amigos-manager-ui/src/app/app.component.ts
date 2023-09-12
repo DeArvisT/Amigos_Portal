@@ -90,7 +90,7 @@ export class AppComponent implements OnInit
       console.log(key);
 
       // If "ANY" characters typed in the search bar match  "ANY" employee variable characters
-      // then it will return a number greater than -1. If no similliar letter are found, -1 is returned
+      // then it will return a number greater than -1. If no similliar letter are found, -1 is returned 
       for( const employee of this.employees)
       {
         if(employee.name.toLowerCase().indexOf(key.toLowerCase()) !== -1 
