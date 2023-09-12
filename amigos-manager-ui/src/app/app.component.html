@@ -9,16 +9,18 @@
        <ul class="navbar-nav mr-auto">
           <li class="nav-item active">
              <a class="nav-link" (click)="onOpenModal(null, 'add')" data-toggle="modal" data-target="#exampleModal">Add Employee <span class="sr-only">(current)</span></a>
-           </li>
-           <li class="nav-item active">
-            <a class="nav-link" data-toggle="modal" data-target="#teammodule">Add Team <span class="sr-only">(current)</span></a>
-          </li>
-          <li class="nav-item active">
-            <a class="nav-link" data-toggle="modal" data-target="#teammodule">Remove Team <span class="sr-only">(current)</span></a>
-          </li>
-          <li class="nav-item active">
-            <a class="nav-link" data-toggle="modal" data-target="#teammodule">Change Teams<span class="sr-only">(current)</span></a>
-          </li>
+             </li>
+             <div class="dropdown">
+               <li class="nav-item dropdown" >
+                  <a class="nav-link dropdown-toggle"  style="color:white;" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> Manage Team </a>
+                  <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item" href="#">Add Team </a>
+                    <a class="dropdown-item" href="#">Remove Team </a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" href="#">Change Teams</a>
+                  </div>
+                </li>
+             </div>
           <li class="nav-item active">
             <a class="nav-link" data-toggle="modal" data-target="#teammodule">Logout <span class="sr-only">(current)</span></a>
           </li>
